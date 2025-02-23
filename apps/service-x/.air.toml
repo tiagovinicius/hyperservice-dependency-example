@@ -1,0 +1,20 @@
+# .air.toml
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  cmd = "go build -o ./tmp/main ./"
+  bin = "tmp/main"
+  include = [
+    "cmd",  
+    "internal" 
+  ]
+  exclude = [
+    "tmp",
+    "assets",
+    "node_modules"
+  ]
+
+[log]
+  time = true
+  log_level = "debug"

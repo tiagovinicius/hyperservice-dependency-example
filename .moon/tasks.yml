@@ -1,0 +1,5 @@
+tasks:
+  dev:
+    command: "air"
+  start:
+    command: "bin/main"

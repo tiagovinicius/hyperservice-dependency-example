@@ -1,0 +1,8 @@
+stack: "backend"
+type: "application"
+language: "go"
+tasks:
+    build:
+      script: |
+        go build -o ./bin/main ./
+        docker build -t hyperservice-service-x-image:latest -f /workspaces/hyperservice-dependency-example/apps/service-x/Dockerfile /workspaces/hyperservice-dependency-example
