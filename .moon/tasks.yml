@@ -1,5 +1,5 @@
 tasks:
   dev:
     command: "air"
-  start:
+  serve:
     command: "bin/main"
