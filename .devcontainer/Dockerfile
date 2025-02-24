@@ -8,6 +8,10 @@ RUN echo "Install base dependencies" && \
 RUN curl -sL https://raw.githubusercontent.com/tiagovinicius/hyperservice/main/get-hy-cp.sh | bash && \
     chmod +x hy-cp && mv hy-cp /usr/local/bin/
 
+# Install hyperservice CLI
+RUN curl -sL https://raw.githubusercontent.com/tiagovinicius/hyperservice/main/get-hyctl.sh | bash && \
+chmod +x hyctl && mv hyctl /usr/local/bin/
+
 # Install Air
 RUN go install github.com/air-verse/air@latest
 

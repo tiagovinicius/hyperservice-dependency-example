@@ -8,6 +8,7 @@
       "ghcr.io/devcontainers/features/docker-in-docker:2": {},
       "ghcr.io/devcontainers/features/git:1": {}
     },
+    "runArgs": ["--env-file", ".devcontainer/.env"],
     "mounts": [
         "source=${env:HOME}/.ssh,target=/root/.ssh,type=bind",
         "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
