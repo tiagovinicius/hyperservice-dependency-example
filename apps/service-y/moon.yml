@@ -6,3 +6,4 @@ tasks:
       script: |
         go build -o ./bin/main ./
         docker build -t hyperservice-service-y-image:latest  -f /workspaces/hyperservice-dependency-example/apps/service-y/Dockerfile /workspaces/hyperservice-dependency-example
+        

@@ -1,5 +1,5 @@
 tasks:
   dev:
-    command: "air"
+    command: "go install github.com/air-verse/air@latest && air"
   serve:
     command: "bin/main"

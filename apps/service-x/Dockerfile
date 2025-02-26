@@ -1,8 +1,12 @@
-FROM debian:bookworm-slim
+FROM golang:1.24.0-bookworm
 
 RUN echo "Install base dependencies" && \
     apt-get update && apt-get install -y \
-    curl nano lsof openssh-client collectd
+    curl nano lsof openssh-client collectd git
+
+
+# Install Air
+RUN go install github.com/air-verse/air@latest
 
 # Install hyperservice Dataplane
 RUN curl -sL https://raw.githubusercontent.com/tiagovinicius/hyperservice/main/get-hy-dp.sh | bash && \
@@ -25,5 +29,7 @@ RUN mkdir /.moon
 COPY ./.moon/* /.moon
 
 COPY ./.prototools /
+
+RUN mkdir /opt/service-x
 
 ENTRYPOINT ["hy-dp"]

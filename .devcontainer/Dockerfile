@@ -2,11 +2,10 @@ FROM golang:1.24.0-bookworm
 
 RUN echo "Install base dependencies" && \
     apt-get update && apt-get install -y \
-    curl nano lsof openssh-client collectd
+    curl nano lsof openssh-client collectd git
 
 # Install hyperservice Control Plane
-RUN curl -sL https://raw.githubusercontent.com/tiagovinicius/hyperservice/main/get-hy-cp.sh | bash && \
-    chmod +x hy-cp && mv hy-cp /usr/local/bin/
+RUN curl -sL https://raw.githubusercontent.com/tiagovinicius/hyperservice/main/get-hy-cp.sh | bash
 
 # Install hyperservice CLI
 RUN curl -sL https://raw.githubusercontent.com/tiagovinicius/hyperservice/main/get-hyctl.sh | bash && \

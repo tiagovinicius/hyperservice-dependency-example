@@ -1,47 +1,47 @@
 {
-    "name": "hyperservice - Dependency Example (Docker, Go)",
-    "build": {
-      "context": "..",
-      "dockerfile": "Dockerfile"
+  "name": "hyperservice - Dependency Example (Docker, Go)",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "runArgs": ["--env-file", ".devcontainer/.env"],
+  "mounts": [
+    "source=${env:HOME}/.ssh,target=/root/.ssh,type=bind",
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "containerEnv": {
+    "HYPERSERVICE_DEV_HOST_WORKSPACE_PATH": "${localWorkspaceFolder}",
+    "HYPERSERVICE_DEV_WORKSPACE_PATH": "${containerWorkspaceFolder}"
+  },
+  "customizations": {
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
     },
-    "features": {
-      "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-      "ghcr.io/devcontainers/features/git:1": {}
-    },
-    "runArgs": ["--env-file", ".devcontainer/.env"],
-    "mounts": [
-        "source=${env:HOME}/.ssh,target=/root/.ssh,type=bind",
-        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    "vscode": {
+      "extensions": [
+        "golang.go",
+        "dbaeumer.vscode-eslint",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker",
+        "GitHub.copilot-workspace",
+        "mads-hartmann.bash-ide-vscode",
+        "github.vscode-github-actions"
       ],
-      "containerEnv": {
-        "HYPERSERVICE_DEV_HOST_WORKSPACE_PATH": "${localWorkspaceFolder}",
-        "HYPERSERVICE_DEV_PATH": "modules/hyperservice"
-      },
-      "customizations": {
-        "settings": {
-          "terminal.integrated.shell.linux": "/bin/bash"
-        },
-        "vscode": {
-          "extensions": [
-            "golang.go",
-            "dbaeumer.vscode-eslint",
-            "GitHub.copilot",
-            "GitHub.copilot-chat",
-            "esbenp.prettier-vscode",
-            "ms-azuretools.vscode-docker",
-            "GitHub.copilot-workspace",
-            "mads-hartmann.bash-ide-vscode",
-            "github.vscode-github-actions"
-          ],
-          "settings": {
-            "go.useLanguageServer": true,
-            "editor.formatOnSave": true,
-            "files.autoSave": "afterDelay",
-            "editor.defaultFormatter": "esbenp.prettier-vscode"
-          }
-        }
-      },
-      "forwardPorts": [3001],
-      "postCreateCommand": "bash .devcontainer/setup.sh",
-      "postAttachCommand": "bash"
-  }
+      "settings": {
+        "go.useLanguageServer": true,
+        "editor.formatOnSave": true,
+        "files.autoSave": "afterDelay",
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  },
+  "forwardPorts": [3001],
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postAttachCommand": "bash"
+}
