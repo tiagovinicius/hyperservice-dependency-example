@@ -5,3 +5,7 @@ tasks:
     command: "bin/main"
   build:
     command: "go build -o ./bin/main ./"
+  migrate:
+    command: "echo 'migrate'"
+  seed:
+    command: "echo 'seed'"
