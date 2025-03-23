@@ -9,8 +9,7 @@ RUN echo "Install base dependencies" && \
 RUN go install github.com/air-verse/air@latest
 
 # Install hyperservice Dataplane
-RUN curl -sL https://raw.githubusercontent.com/tiagovinicius/hyperservice/main/get-hy-dp.sh | bash && \
-    chmod +x hy-dp && mv hy-dp /usr/local/bin/
+RUN curl -sL https://raw.githubusercontent.com/tiagovinicius/hyperservice/main/get-hy-dp.sh | bash
 
 # Install Kuma
 RUN curl -L https://kuma.io/installer.sh | VERSION=2.9.3 sh - && \
@@ -29,7 +28,5 @@ RUN mkdir /.moon
 COPY ./.moon/* /.moon
 
 COPY ./.prototools /
-
-RUN mkdir /opt/service-x
 
 ENTRYPOINT ["hy-dp"]

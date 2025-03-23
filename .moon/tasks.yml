@@ -3,3 +3,5 @@ tasks:
     command: "go install github.com/air-verse/air@latest && air"
   serve:
     command: "bin/main"
+  build:
+    command: "go build -o ./bin/main ./"
